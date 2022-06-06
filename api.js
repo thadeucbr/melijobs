@@ -45,9 +45,6 @@ nodeCron.schedule('1 18 * * *', () => verifyJobs(), {
   timezone: 'America/Sao_Paulo',
 });
 
-execute()
-setTimeout(() => verifyJobs(), 50000)
-
 app.listen(3005, () => console.log('API rodando na porta 3005'));
 
 
