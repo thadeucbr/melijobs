@@ -8,15 +8,15 @@ const verifyJobs = async () => {
     if(job.sent === false) {
       await sendText(job);
       console.log('Vaga enviada')
+      job.sent = true;
+      return job;
     }
-    job.sent = true;
-    return job;
   }));
   fs.writeFileSync('jobs.json', JSON.stringify(sentJobs))
 }
 
 const sendText = async (content) => {
-  await axios.post('http://localhost:8002/sendText', {
+  await axios.post('http://192.168.1.56:8002/sendText', {
     "args": {
       "to": "120363025308814807@g.us",
       "content": `

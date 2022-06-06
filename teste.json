@@ -1,0 +1,38 @@
+{
+  "jobs": [
+      {
+          "id": "jobs/118660671261811398",
+          "title": "Software Engineer (English, Portuguese)",
+          "apply_url": "https://www.google.com/about/careers/applications/signin?jobId=CiUAL2FckYSRMIyEs5N7CY-mkxcGFusAy0UFqlkk8m0TNxE8HFb5EjsAkXGnOwnGf6xy6fTGw7awJzSWcywJZRceP8PMKr3UWQoQBS7eJuSiE3jNn8FjXGA9pziCSVFF1e5EYA%3D%3D_V2&jobTitle=Software+Engineer&loc=BR",
+          "locations": [
+              {
+                  "display": "São Paulo, State of São Paulo, Brazil",
+                  "lat": -23.5864794,
+                  "lon": -46.68207839999999,
+                  "address_lines": [
+                      "Pátio Victor Malzoni - Av. Brg. Faria Lima, 3477 - 18º andar - Itaim Bibi, São Paulo - SP, 04538-132, Brazil"
+                  ],
+                  "city": "São Paulo",
+                  "post_code": "04538-132",
+                  "country": "SP",
+                  "country_code": "BR",
+                  "is_remote": false
+              },
+              {
+                  "display": "Brazil",
+                  "lat": -14.235004,
+                  "lon": -51.92528,
+                  "address_lines": [
+                      "Brazil"
+                  ],
+                  "city": null,
+                  "post_code": "",
+                  "country": null,
+                  "country_code": "BR",
+                  "is_remote": true
+              }
+          ],
+          "publish_date": "2022-05-27T18:32:04.553Z"
+      }
+  ]
+}

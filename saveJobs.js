@@ -7,8 +7,9 @@ const saveJobs = async () => {
     'https://mercadolibre.eightfold.ai/api/apply/v2/jobs?domain=mercadolibre.com&profile=&query=bootcamp&location=Brazil&domain=mercadolibre.com&triggerGoButton=false&triggerGoButton=true'
   ).catch(err => console.log(err.message));
 
-  const jobs = response.data.positions.map(({ id, name, location }) => ({
+  const jobs = response.data.positions.map(({ id, name, location, t_create }) => ({
     id,
+    date: t_create,
     name,
     location,
     sent: false,
@@ -26,7 +27,7 @@ const saveJobs = async () => {
   fs.writeFileSync('jobs.json', JSON.stringify(savedJobs));
 
   console.log(Date())
-  console.log('Busca por vaga realizada.')
+  console.log('MercadoLivre: Busca por vaga realizada.')
 };
 
 module.exports = saveJobs;
