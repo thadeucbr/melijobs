@@ -8,9 +8,9 @@ const verifyJobs = async () => {
     if(job.sent === false) {
       await sendText(job);
       console.log('Vaga enviada')
-      job.sent = true;
-      return job;
     }
+    job.sent = true;
+    return job;
   }));
   fs.writeFileSync('jobs.json', JSON.stringify(sentJobs))
 }
