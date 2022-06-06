@@ -26,3 +26,6 @@ nodeCron.schedule('45 21 * * *', () => verifyJobs(), {
 });
 
 app.listen(3005, () => console.log('API rodando na porta 3005'));
+
+
+// https://github.com/tryber/sd-016-a-live-lectures/tree/lecture/27.3/praticalExemple/src
