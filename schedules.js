@@ -6,7 +6,7 @@ const sendJobs = require('./jobs/sendJobs')
 const execute = () => {
   setTimeout(() => amazonJobs(), 10000);
   setTimeout(() => mercadoLivreJobs(), 20000);
-  setTimeout(() => googleJobs, 30000)
+  setTimeout(() => googleJobs(), 30000)
   setTimeout(() => sendJobs(), 40000)
 }
 
