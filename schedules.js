@@ -10,5 +10,4 @@ const execute = () => {
   setTimeout(() => sendJobs(), 40000)
 }
 
-execute()
 module.exports = execute;
