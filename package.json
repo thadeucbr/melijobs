@@ -1,0 +1,17 @@
+{
+  "name": "melijobs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Thadeu Castelo Branco Ramos <thadeucbr@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@open-wa/wa-automate": "^4.37.5",
+    "axios": "^0.27.2",
+    "express": "^4.18.1",
+    "node-cron": "^3.0.0"
+  },
+  "scripts": {
+    "start:whatsapp": "npm i && npx @open-wa/wa-automate",
+    "start": "node api.js"
+  }
+}
