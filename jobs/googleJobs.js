@@ -9,6 +9,7 @@ const googleSaveJobs = async () => {
 
   const jobs = response.data.jobs.map(({ id, publish_date, title, apply_url, locations }) => ({
     id,
+    company: 'Google(BR)',
     name: title,
     sent: false,
     url: apply_url,
@@ -30,5 +31,4 @@ const googleSaveJobs = async () => {
   console.log('Google(BR): Busca por vaga realizada.')
 };
 
-googleSaveJobs()
 module.exports = googleSaveJobs;

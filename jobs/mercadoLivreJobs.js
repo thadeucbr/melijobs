@@ -2,13 +2,14 @@ const { default: axios } = require('axios');
 
 const fs = require('fs');
 
-const saveJobs = async () => {
+const mercadoLivreJobs = async () => {
   const response = await axios.get(
     'https://mercadolibre.eightfold.ai/api/apply/v2/jobs?domain=mercadolibre.com&profile=&query=bootcamp&location=Brazil&domain=mercadolibre.com&triggerGoButton=false&triggerGoButton=true'
   ).catch(err => console.log(err.message));
 
   const jobs = response.data.positions.map(({ id, name, location, t_create }) => ({
     id,
+    company: 'MercadoLivre',
     date: t_create,
     name,
     location,
@@ -30,4 +31,4 @@ const saveJobs = async () => {
   console.log('MercadoLivre: Busca por vaga realizada.')
 };
 
-module.exports = saveJobs;
+module.exports = mercadoLivreJobs;

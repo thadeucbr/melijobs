@@ -9,6 +9,7 @@ const amazonSaveJobs = async () => {
 
   const jobs = response.data.jobs.map(({ id, posted_date, title, url_next_step, location }) => ({
     id,
+    company: 'Amazon(BR)',
     name: title,
     sent: false,
     url: url_next_step,

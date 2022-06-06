@@ -1,29 +1,30 @@
 const express = require('express');
 const nodeCron = require('node-cron');
-const saveJobs = require('./saveJobs');
-const verifyJobs = require('./sendJobs');
+const execute = require('./schedules');
 
 const app = express();
 
-nodeCron.schedule('0 8 * * *', () => saveJobs(), {
+nodeCron.schedule('59 23 * * *', () => execute(), {
   scheduled: true,
   timezone: 'America/Sao_Paulo',
 });
 
-nodeCron.schedule('4 8 * * *', () => verifyJobs(), {
+nodeCron.schedule('0 6 * * *', () => execute(), {
   scheduled: true,
   timezone: 'America/Sao_Paulo',
 });
 
-nodeCron.schedule('44 21 * * *', () => saveJobs(), {
+nodeCron.schedule('0 12 * * *', () => execute(), {
   scheduled: true,
   timezone: 'America/Sao_Paulo',
 });
 
-nodeCron.schedule('45 21 * * *', () => verifyJobs(), {
+nodeCron.schedule('0 18 * * *', () => execute(), {
   scheduled: true,
   timezone: 'America/Sao_Paulo',
 });
+
+execute()
 
 app.listen(3005, () => console.log('API rodando na porta 3005'));
 
