@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start:whatsapp": "npm i && npx @open-wa/wa-automate",
+    "prestart": "npm i",
     "start": "node api.js"
   }
 }

@@ -16,7 +16,7 @@ const verifyJobs = async () => {
 }
 
 const sendText = async (content) => {
-  await axios.post('http://localhost:8002/sendText', {
+  await axios.post('http://whatsapp:3339/sendText', {
     "args": {
       "to": "120363025308814807@g.us",
       "content": `

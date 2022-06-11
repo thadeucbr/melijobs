@@ -2,8 +2,21 @@ version: '3.9'
 
 services:
   whatsapp:
-    build: api/whatsapp
-    container_name: whatsapp
+    image: openwa/wa-automate
+    ports:
+      - 3339:3339
+    environment:
+      - WA_PORT=3339
+  
+  vagas:
+    image: node:16
+    container_name: vagas
     restart: always
+    depends_on:
+      - whatsapp
+    ports:
+      - 3334:3334
     volumes:
-      - ./api/whatsapp:/usr/src/app
+      - ./api/vagas:/usr/app/vagas
+    working_dir: /usr/app/vagas
+    command: bash -c "npm start"
