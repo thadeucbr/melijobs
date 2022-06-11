@@ -50,5 +50,4 @@ setTimeout(() => verifyJobs(), 50000)
 
 app.listen(3005, () => console.log('API rodando na porta 3005'));
 
-
 // https://github.com/tryber/sd-016-a-live-lectures/tree/lecture/27.3/praticalExemple/src

@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  whatsapp:
+    build: api/whatsapp
+    container_name: whatsapp
+    restart: always
+    volumes:
+      - ./api/whatsapp:/usr/src/app
