@@ -1,4 +1,4 @@
-const axios = require('axios');
+const { default: axios } = require('axios')
 
 const sayHello = async () => {
   await axios.post('http://whatsapp:3339/sendText', {
