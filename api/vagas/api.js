@@ -3,6 +3,7 @@ const nodeCron = require('node-cron');
 const execute = require('./schedules');
 const verifyJobs = require('./jobs/sendJobs')
 const fs = require('fs');
+const sayHello = require('./utils/helloWhatsapp');
 
 const app = express();
 
@@ -49,8 +50,9 @@ nodeCron.schedule('1 18 * * *', () => verifyJobs(), {
 });
 
 execute()
-setTimeout(() => verifyJobs(), 50000)
+setTimeout(() => sayHello(), 30000)
+setTimeout(() => verifyJobs(), 60000)
 
-app.listen(3005, () => console.log('API rodando na porta 3005'));
+app.listen(3334, () => console.log('API rodando na porta 3334'));
 
 // https://github.com/tryber/sd-016-a-live-lectures/tree/lecture/27.3/praticalExemple/src
