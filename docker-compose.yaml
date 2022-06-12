@@ -19,3 +19,14 @@ services:
       - ./api/vagas:/usr/app/vagas
     working_dir: /usr/app/vagas
     command: bash -c "npm install && npm start"
+
+  gateway:
+    image: node:16
+    container_name: gateway
+    restart: always
+    ports:
+      - 7777:7777
+    volumes:
+      - ./api/gateway:/usr/app/gateway
+    working_dir: /usr/app/gateway
+    command: bash -c "npm start"
