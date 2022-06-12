@@ -1,24 +1,37 @@
 version: '3.9'
 
 services:
-  whatsapp:
-    image: openwa/wa-automate
+  postgres:
+    image: postgres
+    container_name: database_pg
     restart: always
-    ports:
-      - 3339:3339
     environment:
-      - WA_PORT=3339
-  
-  vagas:
-    image: node:16
-    container_name: vagas
-    restart: always
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_USER: "admin"
     ports:
-      - 3334:3334
+      - 5432:5432
     volumes:
-      - ./api/vagas:/usr/app/vagas
-    working_dir: /usr/app/vagas
-    command: bash -c "npm install && npm start"
+      - .:/usr/db/pg
+
+  # whatsapp:
+  #   image: openwa/wa-automate
+  #   container_name: whatsapp
+  #   restart: always
+  #   ports:
+  #     - 3339:3339
+  #   environment:
+  #     - WA_PORT=3339
+  
+  # vagas:
+  #   image: node:16
+  #   container_name: vagas
+  #   restart: always
+  #   ports:
+  #     - 3334:3334
+  #   volumes:
+  #     - ./api/vagas:/usr/app/vagas
+  #   working_dir: /usr/app/vagas
+  #   command: bash -c "npm install && npm start"
 
   gateway:
     image: node:16
@@ -30,3 +43,14 @@ services:
       - ./api/gateway:/usr/app/gateway
     working_dir: /usr/app/gateway
     command: bash -c "npm install && npm start"
+  
+  loteria:
+    image: node:16
+    container_name: loteria
+    restart: always
+    ports:
+      - 3331:3331
+    volumes:
+      - ./api/loterias:/usr/app/loterias
+    working_dir: /usr/app/loterias
+    command: bash -c "npm install && npm run dev"
