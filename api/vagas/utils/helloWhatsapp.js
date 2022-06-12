@@ -5,7 +5,7 @@ const sayHello = async () => {
     "args": {
       "to": "120363025308814807@g.us",
       "content": `
-        ${Date.now()}
+        ${Date()}
         API Reiniciada.
       `
     }
