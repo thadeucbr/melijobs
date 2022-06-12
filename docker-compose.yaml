@@ -19,5 +19,3 @@ services:
       - ./api/vagas:/usr/app/vagas
     working_dir: /usr/app/vagas
     command: bash -c "npm install && npm start"
-    depends_on:
-      - whatsapp

@@ -52,8 +52,8 @@ nodeCron.schedule('1 18 * * *', () => verifyJobs(), {
 });
 
 execute()
-setTimeout(() => sayHello(), 70000)
-setTimeout(() => verifyJobs(), 80000)
+setTimeout(() => sayHello(), 120000)
+setTimeout(() => verifyJobs(), 130000)
 
 app.listen(3334, () => console.log('API rodando na porta 3334'));
 
