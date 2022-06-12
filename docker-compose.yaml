@@ -3,6 +3,7 @@ version: '3.9'
 services:
   whatsapp:
     image: openwa/wa-automate
+    restart: always
     ports:
       - 3339:3339
     environment:
