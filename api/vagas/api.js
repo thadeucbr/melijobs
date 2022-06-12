@@ -2,8 +2,11 @@ const express = require('express');
 const nodeCron = require('node-cron');
 const execute = require('./schedules');
 const verifyJobs = require('./jobs/sendJobs')
+const fs = require('fs');
 
 const app = express();
+
+fs.access('jobs.json', () => fs.writeFileSync('jobs.json', '[]'))
 
 nodeCron.schedule('58 23 * * *', () => execute(), {
   scheduled: true,
