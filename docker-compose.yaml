@@ -12,8 +12,6 @@ services:
     image: node:16
     container_name: vagas
     restart: always
-    depends_on:
-      - whatsapp
     ports:
       - 3334:3334
     volumes:
