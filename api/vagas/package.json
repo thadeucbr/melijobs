@@ -11,8 +11,6 @@
     "node-cron": "^3.0.0"
   },
   "scripts": {
-    "start:whatsapp": "npm i && npx @open-wa/wa-automate",
-    "prestart": "npm install",
     "start": "node api.js"
   }
 }
