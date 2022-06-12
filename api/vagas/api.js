@@ -7,7 +7,9 @@ const sayHello = require('./utils/helloWhatsapp');
 
 const app = express();
 
-fs.access('jobs.json', () => fs.writeFileSync('jobs.json', '[]'))
+fs.access('jobs.json', (error) => {
+  error && fs.writeFileSync('jobs.json', '[]')
+})
 
 nodeCron.schedule('58 23 * * *', () => execute(), {
   scheduled: true,
