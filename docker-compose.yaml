@@ -1,19 +1,19 @@
 version: '3.9'
 
 services:
-  # postgres:
-  #   image: postgres
-  #   container_name: database_pg
-  #   restart: always
-  #   environment:
-  #     POSTGRES_PASSWORD: "admin"
-  #     POSTGRES_USER: "admin"
-  #   logging:
-  #     driver: none
-  #   ports:
-  #     - 5432:5432
-  #   volumes:
-  #     - .:/usr/db/pg
+  postgres:
+    image: postgres
+    container_name: database_pg
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_USER: "admin"
+    logging:
+      driver: none
+    ports:
+      - 5432:5432
+    volumes:
+      - .:/usr/db/pg
 
   mongo:
     image: mongo
@@ -24,36 +24,36 @@ services:
     ports:
       - 27017:27017
 
-  # whatsapp:
-  #   image: openwa/wa-automate
-  #   container_name: whatsapp
-  #   restart: always
-  #   ports:
-  #     - 3339:3339
-  #   environment:
-  #     - WA_PORT=3339
+  whatsapp:
+    image: openwa/wa-automate
+    container_name: whatsapp
+    restart: always
+    ports:
+      - 3339:3339
+    environment:
+      - WA_PORT=3339
   
-  # vagas:
-  #   image: node:16
-  #   container_name: vagas
-  #   restart: always
-  #   ports:
-  #     - 3334:3334
-  #   volumes:
-  #     - ./api/vagas:/usr/app/vagas
-  #   working_dir: /usr/app/vagas
-  #   command: bash -c "npm install && npm start"
+  vagas:
+    image: node:16
+    container_name: vagas
+    restart: always
+    ports:
+      - 3334:3334
+    volumes:
+      - ./api/vagas:/usr/app/vagas
+    working_dir: /usr/app/vagas
+    command: bash -c "npm install && npm start"
 
-  # gateway:
-  #   image: node:16
-  #   container_name: gateway
-  #   restart: always
-  #   ports:
-  #     - 7777:7777
-  #   volumes:
-  #     - ./api/gateway:/usr/app/gateway
-  #   working_dir: /usr/app/gateway
-  #   command: bash -c "npm install && npm start"
+  gateway:
+    image: node:16
+    container_name: gateway
+    restart: always
+    ports:
+      - 7777:7777
+    volumes:
+      - ./api/gateway:/usr/app/gateway
+    working_dir: /usr/app/gateway
+    command: bash -c "npm install && npm start"
   
   loteria:
     image: node:16
