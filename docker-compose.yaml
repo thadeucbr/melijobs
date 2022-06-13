@@ -8,30 +8,41 @@ services:
     environment:
       POSTGRES_PASSWORD: "admin"
       POSTGRES_USER: "admin"
+    logging:
+      driver: none
     ports:
       - 5432:5432
     volumes:
       - .:/usr/db/pg
 
-  # whatsapp:
-  #   image: openwa/wa-automate
-  #   container_name: whatsapp
-  #   restart: always
-  #   ports:
-  #     - 3339:3339
-  #   environment:
-  #     - WA_PORT=3339
+  mongo:
+    image: mongo
+    restart: always
+    container_name: database_mongo
+    logging:
+      driver: none
+    ports:
+      - 27017:27017
+
+  whatsapp:
+    image: openwa/wa-automate
+    container_name: whatsapp
+    restart: always
+    ports:
+      - 3339:3339
+    environment:
+      - WA_PORT=3339
   
-  # vagas:
-  #   image: node:16
-  #   container_name: vagas
-  #   restart: always
-  #   ports:
-  #     - 3334:3334
-  #   volumes:
-  #     - ./api/vagas:/usr/app/vagas
-  #   working_dir: /usr/app/vagas
-  #   command: bash -c "npm install && npm start"
+  vagas:
+    image: node:16
+    container_name: vagas
+    restart: always
+    ports:
+      - 3334:3334
+    volumes:
+      - ./api/vagas:/usr/app/vagas
+    working_dir: /usr/app/vagas
+    command: bash -c "npm install && npm start"
 
   gateway:
     image: node:16
