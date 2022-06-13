@@ -16,7 +16,7 @@ export default class Game {
       `https://servicebus2.caixa.gov.br/portaldeloterias/api/${this._url}/`
     );
     const lastGame = this.lastGame();
-    if ((await lastGame).dataApuracao === response.data.dataApuracao) return;
+    if ((await lastGame)?.dataApuracao === response.data.dataApuracao) return;
     console.log(`Salvando ${this._game}`);
     await this._model.create(response.data);
   }
@@ -36,7 +36,7 @@ export default class Game {
 
   public async getNewGame(): Promise<void> {
     const lastGame = (await this.lastGame())?.dataProximoConcurso;
-    if (!lastGame) return this.saveGame();
+    if (lastGame === undefined) return this.saveGame();
     const dateToCompare = moment(lastGame).format('DD/MM/YYYY');
     const oldGame = moment().isAfter(dateToCompare);
     if (oldGame) this.saveGame();
