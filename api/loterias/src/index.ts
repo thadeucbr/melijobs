@@ -7,9 +7,11 @@ const PORT = process.env.APP_PORT || 3331;
 
 db().catch(err => console.log(err));
 
-schedule('3 0 * * *', () => updateGames(), {
+schedule('0 23 * * *', () => updateGames(), {
   scheduled: true,
   timezone: 'America/Sao_Paulo',
 });
+
+updateGames()
 
 app.listen(PORT, () => console.log(`Server rodando na porta ${PORT}`));
