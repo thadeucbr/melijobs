@@ -29,7 +29,7 @@ schedule('0 18 * * *', () => execute(), {
 });
 
 execute()
-// setTimeout(() => sayHello(), 120000)
+setTimeout(() => sayHello(), 120000)
 
 app.listen(3334, () => console.log('API rodando na porta 3334'));
 

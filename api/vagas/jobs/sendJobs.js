@@ -1,4 +1,5 @@
 const vagaModel = require('../models/vagasModel');
+const { default: axios } = require('axios');
 
 const verifyJobs = async () => {
   const jobs = await vagaModel.find();
