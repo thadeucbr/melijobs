@@ -24,14 +24,14 @@ services:
     ports:
       - 27017:27017
 
-  whatsapp:
-    image: openwa/wa-automate
-    container_name: whatsapp
-    restart: always
-    ports:
-      - 3339:3339
-    environment:
-      - WA_PORT=3339
+  # whatsapp:
+  #   image: openwa/wa-automate
+  #   container_name: whatsapp
+  #   restart: always
+  #   ports:
+  #     - 3339:3339
+  #   environment:
+  #     - WA_PORT=3339
   
   vagas:
     image: node:16
