@@ -7,33 +7,31 @@ const Whatsapp = require('./utils/WhatsApp');
 
 const app = express();
 
-// mongoConnection();
+mongoConnection();
 
-// schedule('58 23 * * *', () => execute(), {
-//   scheduled: true,
-//   timezone: 'America/Sao_Paulo',
-// });
+schedule('58 23 * * *', () => execute(), {
+  scheduled: true,
+  timezone: 'America/Sao_Paulo',
+});
 
-// schedule('0 6 * * *', () => execute(), {
-//   scheduled: true,
-//   timezone: 'America/Sao_Paulo',
-// });
+schedule('0 6 * * *', () => execute(), {
+  scheduled: true,
+  timezone: 'America/Sao_Paulo',
+});
 
-// schedule('0 12 * * *', () => execute(), {
-//   scheduled: true,
-//   timezone: 'America/Sao_Paulo',
-// });
+schedule('0 12 * * *', () => execute(), {
+  scheduled: true,
+  timezone: 'America/Sao_Paulo',
+});
 
-// schedule('0 18 * * *', () => execute(), {
-//   scheduled: true,
-//   timezone: 'America/Sao_Paulo',
-// });
+schedule('0 18 * * *', () => execute(), {
+  scheduled: true,
+  timezone: 'America/Sao_Paulo',
+});
 
-// execute()
-// setTimeout(() => sayHello(), 120000)
+execute()
+setTimeout(() => sayHello(), 120000)
 
-const teste = new Whatsapp()
-teste.sendZap('5511971704940', 'Emerson', 'Teste', 'Teste')
 app.listen(3334, () => console.log('API rodando na porta 3334'));
 
 // https://github.com/tryber/sd-016-a-live-lectures/tree/lecture/27.3/praticalExemple/src
