@@ -1,7 +1,6 @@
 const express = require('express');
 const { schedule } = require('node-cron');
 const execute = require('./schedules');
-const verifyJobs = require('./jobs/sendJobs');
 const sayHello = require('./utils/helloWhatsapp');
 const mongoConnection = require('./database/mongoose');
 
