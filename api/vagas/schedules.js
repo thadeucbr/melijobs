@@ -1,4 +1,4 @@
-const amazonJobs = require('./jobs/amazonJobs');
+const amazonJobs = require('./jobs/amazonJobs').default;
 const mercadoLivreJobs = require('./jobs/mercadoLivreJobs');
 const googleJobs = require('./jobs/googleJobs');
 const gupySaveJobs = require('./jobs/gupyJobs');
