@@ -8,6 +8,7 @@ const vagaSchema = new Schema ({
   url: String,
   date: String,
   location: String,
+  isRemoteWork: { default: true, type: Boolean }
 });
 
 module.exports = vagaSchema;

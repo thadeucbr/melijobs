@@ -5,9 +5,8 @@ const verifyJobs = async () => {
   await Promise.all(jobs.map(async (job) => {
     if(job.sent === false) {
       await sendText(job);
-      console.log('Vaga enviada')
     }
-    await vagaModel.findOneAndUpdate({ _id: job._id }, { sent: true })
+    await vagaModel.findOneAndUpdate({ _id: job._id}, { sent: true })
   }));
 }
 

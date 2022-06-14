@@ -17,11 +17,13 @@ const gupySaveJobs = async () => {
     location: `${city} - ${state}`
   }));
 
-  await Promise.all(jobs.map(async (job) => {
-    const jobExist = await vagaModel.findOne({ id: job.id })
-    if(jobExist) return;
-    vagaModel.create(job);
-  }));
+  const filteredJobs = jobs.filter(job => job !== false);
+
+    await Promise.all(filteredJobs.map(async (job) => {
+      const jobExist = await vagaModel.findOne({ id: job.id })
+      if(jobExist) return;
+      vagaModel.create(job);
+    }));
 
   console.log(Date())
   console.log('Gupy: Busca por vaga realizada.')
