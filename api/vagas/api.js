@@ -3,7 +3,6 @@ const { schedule } = require('node-cron');
 const execute = require('./schedules');
 const sayHello = require('./utils/helloWhatsapp');
 const mongoConnection = require('./database/mongoose');
-const Whatsapp = require('./utils/WhatsApp');
 
 const app = express();
 
