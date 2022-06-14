@@ -33,16 +33,16 @@ services:
     environment:
       - WA_PORT=3339
   
-  # vagas:
-  #   image: node:16
-  #   container_name: vagas
-  #   restart: always
-  #   ports:
-  #     - 3334:3334
-  #   volumes:
-  #     - ./api/vagas:/usr/app/vagas
-  #   working_dir: /usr/app/vagas
-  #   command: bash -c "npm install && npm start"
+  vagas:
+    image: node:16
+    container_name: vagas
+    restart: always
+    ports:
+      - 3334:3334
+    volumes:
+      - ./api/vagas:/usr/app/vagas
+    working_dir: /usr/app/vagas
+    command: bash -c "npm install && npm start"
 
   # gateway:
   #   image: node:16

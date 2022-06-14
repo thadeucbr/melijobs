@@ -1,6 +1,5 @@
+const vagaModel = require('../models/vagasModel');
 const { default: axios } = require('axios');
-
-const fs = require('fs');
 
 const URL = 'https://portal.api.gupy.io/api/job?name=Desenvolvedor%20back-end&offset=0&limit=20'
 
@@ -18,15 +17,11 @@ const gupySaveJobs = async () => {
     location: `${city} - ${state}`
   }));
 
-  const savedJobs = JSON.parse(fs.readFileSync('jobs.json'));
-  
-  jobs.filter(newJob => {
-    const exist = savedJobs.find(oldJob => newJob.id === oldJob.id)
-    if(exist) return
-    savedJobs.push(newJob)
-  })
-
-  fs.writeFileSync('jobs.json', JSON.stringify(savedJobs));
+  await Promise.all(jobs.map(async (job) => {
+    const jobExist = await vagaModel.findOne({ id: job.id })
+    if(jobExist) return;
+    vagaModel.create(job);
+  }));
 
   console.log(Date())
   console.log('Gupy: Busca por vaga realizada.')

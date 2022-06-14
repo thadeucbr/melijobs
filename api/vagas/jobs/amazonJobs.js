@@ -17,11 +17,14 @@ const amazonSaveJobs = async () => {
     location
   }));
 
-  Promise.all(jobs.map(async (job) => {
-    const jobExist = await vagaModel.find({ id: job.id })
+  await Promise.all(jobs.map(async (job) => {
+    const jobExist = await vagaModel.findOne({ id: job.id })
     if(jobExist) return;
     vagaModel.create(job);
   }));
+  
+  console.log(Date())
+  console.log('Vagas da amazon atualizadas com sucesso.')
 };
 
 module.exports = amazonSaveJobs;

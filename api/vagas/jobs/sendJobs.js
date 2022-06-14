@@ -1,18 +1,14 @@
-const { default: axios } = require('axios')
-
-const fs = require('fs')
+const vagaModel = require('../models/vagasModel');
 
 const verifyJobs = async () => {
-  const jobs = JSON.parse(fs.readFileSync('jobs.json'))
-  const sentJobs = await Promise.all(jobs.map(async (job) => {
+  const jobs = await vagaModel.find();
+  await Promise.all(jobs.map(async (job) => {
     if(job.sent === false) {
       await sendText(job);
       console.log('Vaga enviada')
     }
-    job.sent = true;
-    return job;
+    await vagaModel.findOneAndUpdate({ _id: job._id }, { sent: true })
   }));
-  fs.writeFileSync('jobs.json', JSON.stringify(sentJobs))
 }
 
 const sendText = async (content) => {
