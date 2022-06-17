@@ -40,7 +40,8 @@ services:
     ports:
       - 3334:3334
     volumes:
-      - ./api/vagas:.
+      - ./api/vagas:/usr/app/vagas
+    working_dir: /usr/app/vagas
     command: bash -c "npm install && npm start"
 
   # gateway:
