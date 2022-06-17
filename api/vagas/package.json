@@ -5,6 +5,7 @@
   "author": "Thadeu Castelo Branco Ramos <thadeucbr@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@open-wa/wa-automate": "^4.40.2",
     "axios": "^0.27.2",
     "express": "^4.18.1",
     "mongodb": "^4.7.0",
