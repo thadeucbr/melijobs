@@ -10,7 +10,7 @@
     "mongodb": "^4.7.0",
     "mongoose": "^6.3.8",
     "node-cron": "^3.0.0",
-    "puppeteer": "^14.4.0"
+    "puppeteer": "13.5.0"
   },
   "scripts": {
     "start": "node api.js"
