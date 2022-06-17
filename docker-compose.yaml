@@ -39,7 +39,7 @@ services:
     restart: always
     ports:
       - 3334:3334
-    command: bash -c "npm install && npm start"
+    command: bash -c "npm start"
 
   # gateway:
   #   image: node:16
