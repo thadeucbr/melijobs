@@ -1,7 +1,6 @@
 const express = require('express');
 const { schedule } = require('node-cron');
 const execute = require('./schedules');
-const sayHello = require('./utils/helloWhatsapp');
 const mongoConnection = require('./database/mongoose');
 
 const app = express();
@@ -29,7 +28,6 @@ schedule('0 18 * * *', () => execute(), {
 });
 
 execute()
-setTimeout(() => sayHello(), 120000)
 
 app.listen(3334, () => console.log('API rodando na porta 3334'));
 
