@@ -34,7 +34,7 @@ services:
   #     - WA_PORT=3339
   
   vagas:
-    image: node:16
+    image: node-chrome:latest
     container_name: vagas
     restart: always
     ports:
@@ -42,7 +42,7 @@ services:
     volumes:
       - ./api/vagas:/usr/app/vagas
     working_dir: /usr/app/vagas
-    command: bash -c "apt install -y chromium-browser && npm install && npm start"
+    command: bash -c "npm install && npm start"
 
   # gateway:
   #   image: node:16

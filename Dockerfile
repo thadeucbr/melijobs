@@ -11,8 +11,3 @@ RUN apt-get update && apt-get install curl gnupg -y \
   && apt-get update \
   && apt-get install google-chrome-stable -y --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
-
-COPY . .
-
-RUN cd api/vagas && npm install
-CMD cd api/vagas && npm start
