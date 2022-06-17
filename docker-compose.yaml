@@ -42,7 +42,7 @@ services:
     volumes:
       - ./api/vagas:/usr/app/vagas
     working_dir: /usr/app/vagas
-    command: bash -c "apt install chromium-browser && npm install && npm start"
+    command: bash -c "apt-get chromium-browser && npm install && npm start"
 
   # gateway:
   #   image: node:16
