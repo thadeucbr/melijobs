@@ -6,3 +6,4 @@ COPY api/vagas/ .
 
 RUN chmod -R o+rwx node_modules/puppeteer/.local-chromium
 
+RUN cd vagas && npm install && npm run
