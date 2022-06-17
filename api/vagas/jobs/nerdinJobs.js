@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const vagaModel = require('../models/vagasModel');
 
 const nerdinSaveJobs = async () => {
-  const browser = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome' });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(
     'https://www.nerdin.com.br/vagas?CodigoCidade=0&CodigoEspecialidade=31,25&CodigoVaga=&CodigoEmpresa=0'
@@ -31,6 +31,7 @@ const nerdinSaveJobs = async () => {
       vagaModel.create(job);
     })
   );
+  console.log('Vagas da nerdin atualizadas com sucesso.')
 };
 
 module.exports = nerdinSaveJobs;
