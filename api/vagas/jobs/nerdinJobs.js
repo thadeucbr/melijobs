@@ -27,4 +27,4 @@ const nerdinSaveJobs = async () => {
   }));
 };
 
-export default nerdinSaveJobs
+module.exports = nerdinSaveJobs
