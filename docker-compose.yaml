@@ -34,7 +34,7 @@ services:
   #     - WA_PORT=3339
   
   vagas:
-    image: node
+    image: node:14
     container_name: vagas
     restart: always
     ports:
