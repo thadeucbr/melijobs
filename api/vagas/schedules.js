@@ -3,7 +3,7 @@ const mercadoLivreJobs = require('./jobs/mercadoLivreJobs');
 const googleJobs = require('./jobs/googleJobs');
 const gupySaveJobs = require('./jobs/gupyJobs');
 const verifyJobs = require('./jobs/sendJobs');
-const { default: nerdinSaveJobs } = require('./jobs/nerdinJobs');
+const nerdinSaveJobs = require('./jobs/nerdinJobs');
 
 const execute = () => {
   googleJobs()
