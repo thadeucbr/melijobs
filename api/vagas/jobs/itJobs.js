@@ -12,7 +12,7 @@ const itJobs = async () => {
     company: job.company.name,
     name: job.title,
     sent: false,
-    url: `https://www.itjobs.pt/oferta/${job.id}/`,
+    url: `https://www.itjobs.pt/oferta/${job.id}`,
     date: job.publishedAt,
     location: `${job.company.address} (Remoto)`
   }));
