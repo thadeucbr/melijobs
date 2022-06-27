@@ -39,7 +39,7 @@ const nerdinSaveJobs = async () => {
       vagaModel.create(job);
     })
   );
-  console.log('Vagas da nerdin atualizadas com sucesso.')
+  console.log('Nerdin: Busca por vaga realizada.')
 };
 
 module.exports = nerdinSaveJobs;

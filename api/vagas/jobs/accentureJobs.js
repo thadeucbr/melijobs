@@ -39,7 +39,7 @@ const accentureSaveJobs = async () => {
       vagaModel.create(job);
     })
   );
-  console.log('Vagas da accenture atualizadas com sucesso.');
+  console.log('Accenture: Busca por vaga realizada.');
 };
 
 module.exports = accentureSaveJobs;

@@ -24,7 +24,7 @@ const itJobs = async () => {
   }));
   
   console.log(Date())
-  console.log('Vagas da itJobs atualizadas com sucesso.')
+  console.log('itJobs: Busca por vaga realizada.')
 };
 
 module.exports = itJobs;

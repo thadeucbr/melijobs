@@ -6,16 +6,18 @@ const verifyJobs = require('./jobs/sendJobs');
 const nerdinSaveJobs = require('./jobs/nerdinJobs');
 const accentureSaveJobs = require('./jobs/accentureJobs');
 const itJobs = require('./jobs/itJobs');
+const apinfoSaveJobs = require('./jobs/apinfo');
 
 const execute = () => {
-  googleJobs()
-  setTimeout(() => amazonJobs(), 10*1000);
-  setTimeout(() => mercadoLivreJobs(), 20*1000);
-  setTimeout(() => gupySaveJobs(), 30*1000);
-  setTimeout(() => nerdinSaveJobs(), 40*1000)
-  setTimeout(() => accentureSaveJobs(), 60*1000)
-  setTimeout(() => itJobs(), 70*1000)
-  setTimeout(() => verifyJobs(), 90*1000)
-}
+  googleJobs();
+  setTimeout(() => amazonJobs(), 10 * 1000);
+  setTimeout(() => mercadoLivreJobs(), 20 * 1000);
+  setTimeout(() => gupySaveJobs(), 30 * 1000);
+  setTimeout(() => nerdinSaveJobs(), 40 * 1000);
+  setTimeout(() => accentureSaveJobs(), 60 * 1000);
+  setTimeout(() => itJobs(), 70 * 1000);
+  setTimeout(() => apinfoSaveJobs(), 90 * 1000);
+  setTimeout(() => verifyJobs(), 120 * 1000);
+};
 
 module.exports = execute;

@@ -24,7 +24,7 @@ const amazonSaveJobs = async () => {
   }));
   
   console.log(Date())
-  console.log('Vagas da amazon atualizadas com sucesso.')
+  console.log('Amazon: Busca por vaga realizada.')
 };
 
 module.exports = amazonSaveJobs;
