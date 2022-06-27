@@ -44,7 +44,7 @@ const apinfoSaveJobs = async () => {
 
   await Promise.all(
     jobs.map(async (job) => {
-      const jobExist = await vagaModel.findOne({ url: job.url });
+      const jobExist = await vagaModel.findOne({ id: job.id });
       if (jobExist) return;
       vagaModel.create(job);
     })
