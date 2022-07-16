@@ -1,5 +1,6 @@
 const vagaModel = require('../models/vagasModel');
 const { default: axios } = require('axios');
+const validJob = require('../utils/validJob');
 
 const URL = 'https://careers.google.com/api/v3/search/?distance=50&employment_type=FULL_TIME&has_remote=true&location=Brazil&q=&skills=Developer'
 
