@@ -14,7 +14,7 @@ const linkedinJobs = async () => {
   // Concurrent queries will run on different pages within the same browser instance.
   const scraper = new LinkedinScraper({
     headless: true,
-    slowMo: 2000,
+    slowMo: 1200,
     args: ['--lang=pt-BR'],
   });
 
