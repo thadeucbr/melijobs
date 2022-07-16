@@ -24,18 +24,19 @@ const linkedinJobs = async () => {
   
   // Emitted once for each processed job
   scraper.on(events.scraper.data, async (data) => {
-      let dbJob = await vagaModel.findOne(data.jobId)
-      if(!dbJob) vagaModel.create({
-        id: data.jobId,
-        company: data.company ? data.company : "N/A",
-        name: data.title,
-        sent: false,
-        url: data.applyLink ? data.applyLink : data.link,
-        date: data.date,
-        location: data.location
-      });
-      if(!dbJob) console.log('Nova vaga adicionada')
-      if(dbJob) console.log('Vaga já existe')
+    console.log(data.jobId)
+      // let dbJob = await vagaModel.findOne(data.jobId)
+      // if(!dbJob) vagaModel.create({
+      //   id: data.jobId,
+      //   company: data.company ? data.company : "N/A",
+      //   name: data.title,
+      //   sent: false,
+      //   url: data.applyLink ? data.applyLink : data.link,
+      //   date: data.date,
+      //   location: data.location
+      // });
+      // if(!dbJob) console.log('Nova vaga adicionada')
+      // if(dbJob) console.log('Vaga já existe')
       // console.log(
       //     data.description.length,
       //     data.descriptionHTML.length,
