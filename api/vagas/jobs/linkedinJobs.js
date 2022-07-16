@@ -96,4 +96,4 @@ const linkedinJobs = async () => {
   await scraper.close();
 };
 
-module.exports = linkedinJobs();
+module.exports = linkedinJobs;
