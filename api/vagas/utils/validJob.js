@@ -1,9 +1,19 @@
 function validJob(job) {
   const jobs = ['bootcamp', 'back', 'node', 'ios', 'swift', 'js', 'javascript'];
-  
-  const ignoreJobs = ['php', 'senior', 'sr', 'sênior', 'c#', '.net', 'python', 'django', 'c++']
 
-  const ignoredJobs = ignoreJobs.some(item => job.toLowerCase().includes(item));
+  const ignoreJobs = [
+    'php',
+    'senior',
+    'sr',
+    'sênior',
+    'c#',
+    '.net',
+    'python',
+    'django',
+    'c++',
+  ];
+
+  const ignoredJobs = ignoreJobs.some((item) => job.toLowerCase().includes(item));
 
   if (ignoredJobs) return false;
 
@@ -13,6 +23,3 @@ function validJob(job) {
 }
 
 module.exports = validJob;
-
-
-console.log(validJob('contestando node teste'))
