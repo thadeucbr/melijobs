@@ -8,6 +8,7 @@ const accentureSaveJobs = require('./jobs/accentureJobs');
 const itJobs = require('./jobs/itJobs');
 const apinfoSaveJobs = require('./jobs/apinfo');
 const citSaveJobs = require('./jobs/citJobs');
+const linkedinJobs = require('./jobs/linkedinJobs');
 
 const execute = async () => {
   await Promise.all([
@@ -19,7 +20,9 @@ const execute = async () => {
     accentureSaveJobs(),
     itJobs(),
     apinfoSaveJobs(),
-    citSaveJobs()]
+    citSaveJobs(),
+    linkedinJobs()
+  ]
   );
   console.log('Busca de vagas finalizada.')
   verifyJobs()
