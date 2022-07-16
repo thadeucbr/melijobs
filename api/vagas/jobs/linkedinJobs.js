@@ -8,6 +8,7 @@ const {
   experienceLevelFilter,
   events,
 } = require('linkedin-jobs-scraper');
+const validJob = require('../utils/validJob');
 
 const linkedinJobs = async () => {
   // Each scraper instance is associated with one browser.
@@ -22,13 +23,7 @@ const linkedinJobs = async () => {
 
   // Emitted once for each processed job
   scraper.on(events.scraper.data, async (data) => {
-    if (
-      data.title.toLowerCase().includes('bootcamp') ||
-      data.title.toLowerCase().includes('back') ||
-      data.title.toLowerCase().includes('node') ||
-      data.title.toLowerCase().includes('ios') ||
-      data.title.toLowerCase().includes('swift')
-    ) {
+    if (validJob(data.title)) {
       let dbJob = await vagaModel.findOne({ id: data.jobId });
       if (!dbJob)
         vagaModel.create({

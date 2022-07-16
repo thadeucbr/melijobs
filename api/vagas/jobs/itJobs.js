@@ -1,5 +1,6 @@
 const vagaModel = require('../models/vagasModel');
 const { default: axios } = require('axios');
+const validJob = require('../utils/validJob');
 
 
 const URL = 'https://api.itjobs.pt/job/search.json?api_key=b50429fee8f3f990c64f6054f0a6390a&q=nodejs&limit=30'
@@ -18,9 +19,11 @@ const itJobs = async () => {
   }));
 
   await Promise.all(jobs.map(async (job) => {
-    const jobExist = await vagaModel.findOne({ id: job.id })
-    if(jobExist) return;
-    vagaModel.create(job);
+    if(validJob(job.name)) {
+      const jobExist = await vagaModel.findOne({ id: job.id })
+      if(jobExist) return;
+      vagaModel.create(job);
+    }
   }));
   
   console.log(Date())

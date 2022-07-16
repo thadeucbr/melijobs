@@ -44,9 +44,11 @@ const apinfoSaveJobs = async () => {
 
   await Promise.all(
     jobs.map(async (job) => {
-      const jobExist = await vagaModel.findOne({ id: job.id });
-      if (jobExist) return;
-      vagaModel.create(job);
+      if(validJob(job.name)) {
+        const jobExist = await vagaModel.findOne({ id: job.id });
+        if (jobExist) return;
+        vagaModel.create(job);
+      }
     })
   );
   console.log('Apinfo: Busca por vaga realizada.');

@@ -1,5 +1,6 @@
 const vagaModel = require('../models/vagasModel');
 const { default: axios } = require('axios');
+const validJob = require('../utils/validJob');
 
 const URL = 'https://portal.api.gupy.io/api/job?name=Desenvolvedor%20back-end&offset=0&limit=20'
 
@@ -20,9 +21,11 @@ const gupySaveJobs = async () => {
   const filteredJobs = jobs.filter(job => job !== false);
 
     await Promise.all(filteredJobs.map(async (job) => {
-      const jobExist = await vagaModel.findOne({ id: job.id })
-      if(jobExist) return;
-      vagaModel.create(job);
+      if(validJob(job.name)) {
+        const jobExist = await vagaModel.findOne({ id: job.id })
+        if(jobExist) return;
+        vagaModel.create(job);
+      }
     }));
 
   console.log(Date())

@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const vagaModel = require('../models/vagasModel');
+const validJob = require('../utils/validJob');
 
 const accentureSaveJobs = async () => {
   const browser = await puppeteer.launch({
@@ -34,9 +35,11 @@ const accentureSaveJobs = async () => {
 
   await Promise.all(
     jobs.map(async (job) => {
-      const jobExist = await vagaModel.findOne({ url: job.url });
-      if (jobExist) return;
-      vagaModel.create(job);
+      if(validJob(job.name)) {
+        const jobExist = await vagaModel.findOne({ url: job.url });
+        if (jobExist) return;
+        vagaModel.create(job);
+      }
     })
   );
   console.log('Accenture: Busca por vaga realizada.');
