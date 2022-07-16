@@ -21,7 +21,8 @@ const execute = async () => {
     apinfoSaveJobs(),
     citSaveJobs()]
   );
-  verifyJobs();
+  console.log('Busca de vagas finalizada.')
+  verifyJobs()
 };
 
 module.exports = execute;
