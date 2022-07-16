@@ -64,7 +64,7 @@ const linkedinJobs = async () => {
   });
 
   scraper.on(events.scraper.end, () => {
-      console.log('All done!');
+      console.log('LinkedIn: Busca por vaga realizada.');
   });
 
   // Custom function executed on browser side to extract job description [optional]
