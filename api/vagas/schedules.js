@@ -2,12 +2,33 @@ const amazonJobs = require('./jobs/amazonJobs');
 const mercadoLivreJobs = require('./jobs/mercadoLivreJobs');
 const googleJobs = require('./jobs/googleJobs');
 const gupySaveJobs = require('./jobs/gupyJobs');
+const verifyJobs = require('./jobs/sendJobs');
+const nerdinSaveJobs = require('./jobs/nerdinJobs');
+const accentureSaveJobs = require('./jobs/accentureJobs');
+const itJobs = require('./jobs/itJobs');
+const apinfoSaveJobs = require('./jobs/apinfo');
+const citSaveJobs = require('./jobs/citJobs');
 
-const execute = () => {
-  googleJobs()
-  setTimeout(() => amazonJobs(), 10000);
-  setTimeout(() => mercadoLivreJobs(), 20000);
-  setTimeout(() => gupySaveJobs(), 30000)
-}
+const execute = async () => {
+  // googleJobs();
+  // setTimeout(() => amazonJobs(), 10 * 1000);
+  // setTimeout(() => mercadoLivreJobs(), 20 * 1000);
+  // setTimeout(() => gupySaveJobs(), 30 * 1000);
+  // setTimeout(() => nerdinSaveJobs(), 40 * 1000);
+  // setTimeout(() => accentureSaveJobs(), 60 * 1000);
+  // setTimeout(() => itJobs(), 70 * 1000);
+  // setTimeout(() => apinfoSaveJobs(), 90 * 1000);
+  // setTimeout(() => verifyJobs(), 120 * 1000);
+  await amazonJobs()
+  await mercadoLivreJobs()
+  await googleJobs()
+  await gupySaveJobs()
+  await nerdinSaveJobs()
+  await accentureSaveJobs()
+  await itJobs()
+  await apinfoSaveJobs()
+  await citSaveJobs()
+  await verifyJobs()
+};
 
 module.exports = execute;

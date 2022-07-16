@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3'
 
 services:
   # postgres:
@@ -34,7 +34,7 @@ services:
       - WA_PORT=3339
   
   vagas:
-    image: node:16
+    image: node-chrome:latest
     container_name: vagas
     restart: always
     ports:

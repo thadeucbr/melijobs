@@ -1,6 +1,5 @@
+const vagaModel = require('../models/vagasModel');
 const { default: axios } = require('axios');
-
-const fs = require('fs');
 
 const URL = 'https://careers.google.com/api/v3/search/?distance=50&employment_type=FULL_TIME&has_remote=true&location=Brazil&q=&skills=Developer'
 
@@ -17,15 +16,11 @@ const googleSaveJobs = async () => {
     location: locations[0]?.display
   }));
 
-  const savedJobs = JSON.parse(fs.readFileSync('jobs.json'));
-  
-  jobs.filter(newJob => {
-    const exist = savedJobs.find(oldJob => newJob.id === oldJob.id)
-    if(exist) return
-    savedJobs.push(newJob)
-  })
-
-  fs.writeFileSync('jobs.json', JSON.stringify(savedJobs));
+  await Promise.all(jobs.map(async (job) => {
+    const jobExist = await vagaModel.findOne({ id: job.id })
+    if(jobExist) return;
+    vagaModel.create(job);
+  }));
 
   console.log(Date())
   console.log('Google(BR): Busca por vaga realizada.')
