@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const vagaModel = require('../models/vagasModel');
+const validJob = require('../utils/validJob');
 
 const apinfoSaveJobs = async () => {
   const browser = await puppeteer.launch({
