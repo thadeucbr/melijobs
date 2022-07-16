@@ -14,7 +14,7 @@ const linkedinJobs = async () => {
   // Concurrent queries will run on different pages within the same browser instance.
   const scraper = new LinkedinScraper({
       headless: true,
-      slowMo: 900,
+      slowMo: 1300,
       args: [
           "--lang=pt-BR",
       ],
@@ -24,7 +24,6 @@ const linkedinJobs = async () => {
   
   // Emitted once for each processed job
   scraper.on(events.scraper.data, async (data) => {
-    console.log(data.jobId)
       let dbJob = await vagaModel.findOne({ id: data.jobId})
       if(!dbJob) vagaModel.create({
         id: data.jobId,
@@ -37,6 +36,7 @@ const linkedinJobs = async () => {
       });
       if(!dbJob) console.log('Nova vaga adicionada')
       if(dbJob) console.log('Vaga já existe')
+      console.log(data.insights)
       // console.log(
       //     data.description.length,
       //     data.descriptionHTML.length,
