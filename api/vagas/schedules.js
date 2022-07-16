@@ -10,7 +10,7 @@ const apinfoSaveJobs = require('./jobs/apinfo');
 const citSaveJobs = require('./jobs/citJobs');
 
 const execute = async () => {
-  await Promise.all(
+  await Promise.all([
     amazonJobs(),
     mercadoLivreJobs(),
     googleJobs(),
@@ -19,7 +19,7 @@ const execute = async () => {
     accentureSaveJobs(),
     itJobs(),
     apinfoSaveJobs(),
-    citSaveJobs()
+    citSaveJobs()]
   );
   verifyJobs();
 };
