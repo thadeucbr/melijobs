@@ -1,5 +1,5 @@
 function validJob(job) {
-  const jobs = ['bootcamp', 'back', 'node', 'ios', 'swift', 'js', 'javascript'];
+  const jobs = ['bootcamp', 'back', 'node', 'ios', 'swift', 'js'];
 
   const ignoreJobs = [
     'php',
@@ -11,6 +11,7 @@ function validJob(job) {
     'python',
     'django',
     'c++',
+    'java'
   ];
 
   const ignoredJobs = ignoreJobs.some((item) => job.toLowerCase().includes(item));
