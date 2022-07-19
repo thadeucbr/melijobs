@@ -1,5 +1,5 @@
 function validJob(job) {
-  const jobs = ['bootcamp', 'back', 'node', 'ios', 'swift', 'js'];
+  const jobs = ['bootcamp', 'back', 'node', 'js', 'typescript', 'ts', 'javascript'];
 
   const ignoreJobs = [
     'php',
