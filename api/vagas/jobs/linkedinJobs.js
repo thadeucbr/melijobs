@@ -134,7 +134,7 @@ const linkedinJobs = async () => {
           },
         },
       ],
-      { limit: 1 }
+      { limit: 100 }
     ),
   ]);
 
