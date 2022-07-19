@@ -86,6 +86,7 @@ const linkedinJobs = async () => {
         {
           query: 'Node',
           options: {
+            descriptionFn: descriptionFn,
             locations: ['Brazil', 'Portugal'], // This will override global options ["Europe"],
             filters: {
               relevance: relevanceFilter.RELEVANT,
