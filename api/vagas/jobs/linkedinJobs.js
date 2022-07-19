@@ -128,5 +128,3 @@ const linkedinJobs = async () => {
 };
 
 module.exports = linkedinJobs;
-
-linkedinJobs()
