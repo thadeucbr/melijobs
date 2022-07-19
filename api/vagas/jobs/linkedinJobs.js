@@ -23,7 +23,7 @@ const linkedinJobs = async () => {
 
   // Emitted once for each processed job
   scraper.on(events.scraper.data, async (data) => {
-    if (validJob(data.description)) {
+    if (validJob(data.description ? data.description : data.title)) {
       let dbJob = await vagaModel.findOne({ id: data.jobId });
       if (!dbJob)
         vagaModel.create({
@@ -72,11 +72,12 @@ const linkedinJobs = async () => {
   });
 
   // Custom function executed on browser side to extract job description [optional]
-  const descriptionFn = () =>
-    document
+  const descriptionFn = () => {
+    let data = document
       .querySelector('.jobs-description')
-      .innerText.replace(/[\s\n\r]+/g, ' ')
-      .trim();
+    if(data) return data.innerText.replace(/[\s\n\r]+/g, ' ').trim();
+
+  }
 
   // Run queries concurrently
   await Promise.all([
@@ -104,22 +105,6 @@ const linkedinJobs = async () => {
           query: 'Back-end',
           options: {
             descriptionFn: descriptionFn,
-            locations: ['Brazil', 'Portugal'], // This will override global options ["Europe"],
-            filters: {
-              relevance: relevanceFilter.RELEVANT,
-              time: timeFilter.DAY,
-              experience: [
-                experienceLevelFilter.ENTRY_LEVEL,
-                experienceLevelFilter.ASSOCIATE,
-              ],
-              type: [typeFilter.FULL_TIME, typeFilter.CONTRACT],
-              applyLink: true, // Try to extract apply link. Default to true.
-            },
-          },
-        },
-        {
-          query: 'swift',
-          options: {
             locations: ['Brazil', 'Portugal'], // This will override global options ["Europe"],
             filters: {
               relevance: relevanceFilter.RELEVANT,
