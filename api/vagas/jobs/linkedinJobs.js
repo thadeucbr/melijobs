@@ -23,7 +23,7 @@ const linkedinJobs = async () => {
 
   // Emitted once for each processed job
   scraper.on(events.scraper.data, async (data) => {
-    if (validJob(data.title)) {
+    if (validJob(data.description)) {
       let dbJob = await vagaModel.findOne({ id: data.jobId });
       if (!dbJob)
         vagaModel.create({
@@ -37,8 +37,8 @@ const linkedinJobs = async () => {
         });
     }
     // console.log(
-    //     data.description.length,
-    //     data.descriptionHTML.length,
+    //     data.description,
+    //     data.descriptionHTML,
     //     `Query='${data.query}'`,
     //     `Location='${data.location}'`,
     //     `Id='${data.jobId}'`,
@@ -102,6 +102,7 @@ const linkedinJobs = async () => {
         {
           query: 'Back-end',
           options: {
+            descriptionFn: descriptionFn,
             locations: ['Brazil', 'Portugal'], // This will override global options ["Europe"],
             filters: {
               relevance: relevanceFilter.RELEVANT,
@@ -132,7 +133,7 @@ const linkedinJobs = async () => {
           },
         },
       ],
-      { limit: 100 }
+      { limit: 1 }
     ),
   ]);
 
@@ -141,3 +142,5 @@ const linkedinJobs = async () => {
 };
 
 module.exports = linkedinJobs;
+
+linkedinJobs()
