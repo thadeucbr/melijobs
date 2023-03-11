@@ -34,7 +34,7 @@ services:
       - WA_PORT=3339
   
   vagas:
-    image: node-chrome:latest
+    image: selenium/node-chrome
     container_name: vagas
     restart: always
     ports:
